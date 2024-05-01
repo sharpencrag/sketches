@@ -81,3 +81,10 @@ def ignore_case_replace(orignal_string, value_to_search, replace_value):
     """
     ignore_replace = re.compile(re.escape(value_to_search), re.IGNORECASE)
     return ignore_replace.sub(replace_value, orignal_string)
+
+
+def split_left_fold(string, token):
+    """Split a string into left-folded components
+    split_left_fold("a.b.c") -> ["a", "a.b", "a.b.c"]
+    parts = string.split(token)
+    return ['.'.join(parts[:i+1]) for i in range(len(parts))]
